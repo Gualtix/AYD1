@@ -1,0 +1,17 @@
+#8080 -> msRestaurant
+#8081 -> msClient
+#8083 -> msDelivery
+#9500 -> msLogin
+
+FROM python:3
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install flask
+RUN pip install requests
+
+EXPOSE 8083
+
+CMD [ "python", "msClient.py" ]

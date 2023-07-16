@@ -1,0 +1,18 @@
+#8080 -> msRestaurant
+#8081 -> msClient
+#8083 -> msDelivery
+#9500 -> msLogin
+
+FROM node:latest
+
+WORKDIR /app
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+
+CMD [ "node", "msRestaurant.js" ]

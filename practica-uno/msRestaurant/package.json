@@ -1,0 +1,15 @@
+{
+  "name": "msrestaurant",
+  "version": "1.0.0",
+  "main": "msRestaurant.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1"
+  }
+}

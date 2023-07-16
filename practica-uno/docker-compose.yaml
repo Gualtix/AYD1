@@ -1,0 +1,60 @@
+#8080 -> msRestaurant
+#8081 -> msClient
+#8083 -> msDelivery
+#9500 -> msLogin
+
+version: '3'
+
+services:
+  msrestaurant:
+    build: msRestaurant/.
+    restart: unless-stopped
+    volumes:
+      - /app/node_modules
+    ports:
+      - "8080:8080"
+    networks:
+      testing_net:
+            ipv4_address: 182.18.7.5
+
+  msclient:
+    build: msClient/.
+    restart: unless-stopped
+    volumes:
+      - /app/node_modules
+    ports:
+      - "8081:8081"
+    networks:
+      testing_net:
+            ipv4_address: 182.18.7.10
+
+  msdelivery:
+    build: msDelivery/.
+    restart: unless-stopped
+    volumes:
+      - /app/node_modules
+    ports:
+      - "8083:8083"
+    networks:
+      testing_net:
+            ipv4_address: 182.18.7.15
+
+  mslogin:
+    build: msLogin/.
+    restart: unless-stopped
+    volumes:
+      - /app/node_modules
+    ports:
+      - "9500:9500"
+    networks:
+      testing_net:
+            ipv4_address: 182.18.7.20
+
+networks:
+    testing_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 182.18.7.0/24
+
+# run: docker-compose up -d --build
